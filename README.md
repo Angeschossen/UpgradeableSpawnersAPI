@@ -39,10 +39,9 @@ Alternatively you can download the jar file from here: https://github.com/Angesc
 ## Usage
 
 Please make sure to add softdepend: [UpgradeableSpawners] to your plugin.yml.
-
+All methods can be found in the UpgradeableSpawnersAPI class: https://github.com/Angeschossen/UpgradeableSpawnersAPI/blob/master/src/main/java/me/angeschossen/upgradeablespawners/api/UpgradeableSpawnersAPI.java
 Example:
 
 ```
-
-
+boolean b = UpgradeableSpawnersAPI.isSpawnedBySpawner(entity);
 ```
