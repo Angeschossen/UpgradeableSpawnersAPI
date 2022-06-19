@@ -6,7 +6,7 @@
 
     <groupId>com.github.angeschossen</groupId>
     <artifactId>UpgradeableSpawnersAPI</artifactId>
-    <version>3.0.1</version>
+    <version>3.2.7</version>
     <name>UpgradeableSpawnersAPI</name>
 
     <properties>
