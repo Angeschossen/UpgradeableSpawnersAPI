@@ -1,6 +1,6 @@
 # UpgradeableSpawnersAPI - Integrate UpgradeableSpawners into your Plugin
 
-[![](https://jitpack.io/v/Angeschossen/UpgradeableSpawnerAPI.svg)](https://jitpack.io/#Angeschossen/UpgradeableSpawnersAPI)
+[![](https://jitpack.io/v/Angeschossen/UpgradeableSpawnersAPI.svg)](https://jitpack.io/#Angeschossen/UpgradeableSpawnersAPI)
 
 Include the API with Maven:
 
