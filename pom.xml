@@ -6,7 +6,7 @@
 
     <groupId>com.github.angeschossen</groupId>
     <artifactId>UpgradeableSpawnersAPI</artifactId>
-    <version>3.6.0</version>
+    <version>3.6.1</version>
     <name>UpgradeableSpawnersAPI</name>
 
     <repositories>
@@ -44,12 +44,14 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.angeschossen</groupId>
             <artifactId>EntityStacking</artifactId>
             <version>1.0</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
