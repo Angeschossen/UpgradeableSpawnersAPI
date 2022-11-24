@@ -1,7 +1,5 @@
 package me.angeschossen.upgradeablespawners.api;
 
-import me.angeschossen.entitystacking.api.StackingAPI;
-import me.angeschossen.upgradeablespawners.api.economy.EconomyProvider;
 import me.angeschossen.upgradeablespawners.api.spawner.Spawner;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -17,26 +15,7 @@ public interface UpgradeableSpawnersAPI {
     }
 
     /**
-     * Get the instance of the stacking API.
-     * @return Stacking API
-     */
-    @NotNull StackingAPI getStackingAPI();
-
-    /**
-     * Get the current economy provider.
-     * @return Economy provider
-     */
-    @NotNull
-    EconomyProvider getEconomyProvider();
-
-    /**
-     * Set the economy provider.
-     * @param economyProvider Economy provider
-     */
-    void setEconomyProvider(@NotNull EconomyProvider economyProvider);
-
-    /**
-     * Check wheter or not an entity was spawned by an upgradeable spawner.
+     * Check whether or not an entity was spawned by an upgradeable spawner.
      * The identification is persistent.
      *
      * @param entity The entity

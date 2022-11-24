@@ -6,7 +6,7 @@
 
     <groupId>com.github.angeschossen</groupId>
     <artifactId>UpgradeableSpawnersAPI</artifactId>
-    <version>3.6.1</version>
+    <version>3.6.3</version>
     <name>UpgradeableSpawnersAPI</name>
 
     <repositories>
@@ -32,27 +32,6 @@
             <version>1.2.0</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- PluginAPI -->
-        <dependency>
-            <groupId>com.github.angeschossen</groupId>
-            <artifactId>PluginAPI</artifactId>
-            <version>1.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.angeschossen</groupId>
-            <artifactId>EntityStacking</artifactId>
-            <version>1.0</version>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -60,76 +39,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <filters>
-                                <filter>
-                                    <!-- this filter will remove en_US.properties from your jar.
-                                            You want this filter if you dont use the TranslatableComponent
-                                            so you can keep your jar file size down. -->
-                                    <artifact>net.md-5:bungeecord-chat</artifact>
-                                    <excludes>
-                                        <exclude>*/*en_US.properties</exclude>
-                                        <exclude>*/*en_us.json</exclude>
-                                        <exclude>META-INF/maven/**</exclude>
-                                    </excludes>
-                                </filter>
-                                <filter>
-                                    <artifact>com.github.angeschossen:PluginAPI</artifact>
-                                    <includes>
-                                        <include>me/bytesoft/pluginapi/api/**</include>
-                                    </includes>
-                                </filter>
-                                <filter>
-                                    <artifact>com.github.angeschossen:EntityStacking</artifact>
-                                    <includes>
-                                        <include>me/angeschossen/entitystacking/api/**</include>
-                                    </includes>
-                                </filter>
-                            </filters>
-                            <relocations>
-                                <relocation>
-                                    <pattern>me.bytesoft.pluginapi.api</pattern>
-                                    <shadedPattern>me.angeschossen.upgradeablespawners.api.base</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>me.angeschossen.entitystacking.api</pattern>
-                                    <shadedPattern>me.angeschossen.upgradeablespawners.api.stacking</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.zaxxer.hikari</pattern>
-                                    <shadedPattern>me.angeschossen.upgradeablespawners.hikari</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.slf4j</pattern>
-                                    <shadedPattern>me.angeschossen.upgradeablespawners.slf4j</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
                 <configuration>
-                    <excludes>
-                        <exclude>me/bytesoft/**</exclude>
-                    </excludes>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
     <properties>
