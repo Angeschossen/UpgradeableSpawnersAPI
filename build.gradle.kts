@@ -62,7 +62,7 @@ dependencies {
 }
 
 group = "com.github.angeschossen"
-version = "4.0.10"
+version = "4.1.0"
 description = "UpgradeableSpawnersAPI"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 

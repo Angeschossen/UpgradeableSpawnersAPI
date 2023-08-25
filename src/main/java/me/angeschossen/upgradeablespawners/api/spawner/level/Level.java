@@ -2,15 +2,18 @@ package me.angeschossen.upgradeablespawners.api.spawner.level;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Holds information about a specific level. Each level belongs to a specific upgrade type ({@link UpgradeType}).
+ */
 public class Level {
 
-    private final @NotNull LevelType type;
+    private final @NotNull UpgradeType type;
 
     /**
      * Get the type of this level.
      * @return level type
      */
-    public @NotNull LevelType getType() {
+    public @NotNull UpgradeType getType() {
         return type;
     }
 
@@ -27,7 +30,7 @@ public class Level {
     private final int value;
 
     /**
-     * Get value defining {@link LevelType}.
+     * Get value defining {@link UpgradeType}.
      * @return value of level type
      */
     public int getValue() {
@@ -49,9 +52,9 @@ public class Level {
      * @param type type of level
      * @param index index / order
      * @param cost money needed to upgrade to this level
-     * @param value value defining {@link LevelType}
+     * @param value value defining {@link UpgradeType}
      */
-    public Level(@NotNull LevelType type, int index, double cost, int value) {
+    public Level(@NotNull UpgradeType type, int index, double cost, int value) {
         this.type = type;
         this.cost = cost;
         this.value = value;

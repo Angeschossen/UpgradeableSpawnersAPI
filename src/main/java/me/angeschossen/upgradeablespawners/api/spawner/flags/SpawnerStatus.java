@@ -1,15 +1,18 @@
 package me.angeschossen.upgradeablespawners.api.spawner.flags;
 
-import me.angeschossen.upgradeablespawners.api.spawner.level.LevelType;
+import me.angeschossen.upgradeablespawners.api.spawner.level.UpgradeType;
 
 
+/**
+ * Displays the spawner's current status.
+ */
 public enum SpawnerStatus {
     /**
      * The spawner is spawning entities.
      */
     RUNNING(false),
     /**
-     * The spawner is paused, because it reached the maximum amount of entities of level {@link LevelType#PERIOD_AMOUNT}.
+     * The spawner is paused, because it reached the maximum amount of entities of level {@link UpgradeType#PERIOD_AMOUNT}.
      */
     PAUSED_PERIOD_AMOUNT(true),
     /**
@@ -27,7 +30,7 @@ public enum SpawnerStatus {
     PAUSED_MANUALLY(false),
     /**
      * Spawner is paused, because there are too many entities of the same time around the spawner.
-     * This depends on {@link LevelType#NEARBY_ENTITIES}.
+     * This depends on {@link UpgradeType#NEARBY_ENTITIES}.
      */
     PAUSED_NEARBY_ENTITIES(false),
     /**

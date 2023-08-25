@@ -1,7 +1,10 @@
 package me.angeschossen.upgradeablespawners.api.spawner.level;
 
 
-public enum LevelType {
+/**
+ * Different types of upgrades. Each level ({@link Level}) belongs to an upgade.
+ */
+public enum UpgradeType {
 
     /**
      * Defines how often the spawner spawns.
