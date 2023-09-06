@@ -21,9 +21,14 @@ public enum SpawnerStatus {
      */
     PAUSED_AREA_MAX_ENTITIES(true),
     /**
-     * Spawner is paused by the system. Usually if the chunk is not loaded.
+     * Spawner is paused has been placed, but isn't initialized yet.
+     * This should only appear in the first few ticks after the spawner placement or at chunk load.
      */
-    PAUSED(false),
+    PAUSED_NOT_INITIALIZED(false),
+    /**
+     * A new spawner instance has been loaded from the database and has replaced the current one.
+     */
+    PAUSED_INSTANCE_REPLACED(false),
     /**
      * Spawner is paused because the chunk is unloaded.
      */
