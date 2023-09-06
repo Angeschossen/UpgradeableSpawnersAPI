@@ -25,6 +25,10 @@ public enum SpawnerStatus {
      */
     PAUSED(false),
     /**
+     * Spawner is paused because the chunk is unloaded.
+     */
+    PAUSED_CHUNK_UNLOADED(false),
+    /**
      * Spawner has been paused by a player.
      */
     PAUSED_MANUALLY(false),
