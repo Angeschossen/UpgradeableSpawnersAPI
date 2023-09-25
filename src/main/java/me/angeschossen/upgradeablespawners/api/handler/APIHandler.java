@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 /**
  * This class is not intended for direct usage and might change at any time.
@@ -18,8 +19,8 @@ public class APIHandler {
     private static APIHandler instance;
     private final @NotNull Configuration config;
     private final @NotNull Plugin plugin;
-    private final @NotNull GUIConfiguration guiConfiguration;
-    private final @NotNull Messages messages;
+    private final @NotNull Callable<GUIConfiguration> guiConfiguration;
+    private final @NotNull Callable<Messages> messages;
     private final @NotNull StringUtils stringUtils;
     private final @NotNull UpgradeableSpawnersAPI api;
 
@@ -30,7 +31,7 @@ public class APIHandler {
 
     private APIHandler(@NotNull Plugin plugin,
                        @NotNull Configuration config,
-                       @NotNull Messages messages, @NotNull GUIConfiguration guiConfiguration,
+                       @NotNull Callable<Messages> messages, @NotNull Callable<GUIConfiguration> guiConfiguration,
                        @NotNull StringUtils stringUtils,
                        @NotNull UpgradeableSpawnersAPI api) {
         this.config = config;
@@ -50,11 +51,19 @@ public class APIHandler {
     }
 
     public GUIConfiguration getGUIConfiguration() {
-        return guiConfiguration;
+        try {
+            return guiConfiguration.call();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public @NotNull Messages getMessages() {
-        return messages;
+        try {
+            return messages.call();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public @NotNull StringUtils getStringUtils() {
@@ -67,7 +76,7 @@ public class APIHandler {
 
     public static void init(@NotNull Plugin plugin,
                             @NotNull Configuration config,
-                            @NotNull Messages messages, @NotNull GUIConfiguration guiConfiguration,
+                            @NotNull Callable<Messages> messages, @NotNull Callable<GUIConfiguration> guiConfiguration,
                             @NotNull StringUtils stringUtils,
                             @NotNull UpgradeableSpawnersAPI api) {
         Objects.requireNonNull(config);
