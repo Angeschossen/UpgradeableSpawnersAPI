@@ -45,7 +45,11 @@ public enum SpawnerStatus {
     /**
      * Spawner is paused, because it receives a redstone signal.
      */
-    PAUSED_REDSTONE_SIGNAL(false);
+    PAUSED_REDSTONE_SIGNAL(false),
+    /**
+     * Spawner is paused, because butcher mode is configured to require an upgradeable hopper placed below it.
+     */
+    PAUSED_BUTCHER_HOPPER_MISSING(false);
 
     public final boolean holoUpd;
 
