@@ -1,3 +1,7 @@
+group = "com.github.angeschossen"
+version = "4.1.1"
+description = "UpgradeableSpawnersAPI"
+
 plugins {
     `java-library`
     id("com.github.johnrengelman.shadow").version("7.1.2")
@@ -37,6 +41,10 @@ tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
 
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
 tasks {
     java {
         withJavadocJar()
@@ -52,19 +60,13 @@ tasks {
         configurations = listOf(project.configurations.shadow.get())
         relocate("com.github.angeschossen.pluginframework.api", "me.angeschossen.upgradeablespawners.api.framework")
     }
-
-
 }
+
 dependencies {
-    shadow(libs.pluginframeworkapi)
-    compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
+    shadow("com.github.Angeschossen:PluginFrameworkAPI:1.0.26")
+    compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")
     compileOnly("org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.7.0")
 }
-
-group = "com.github.angeschossen"
-version = "4.1.1"
-description = "UpgradeableSpawnersAPI"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {
     publications {
